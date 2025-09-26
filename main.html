@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiguru Fest - Event Management</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; scroll-behavior: smooth;}
+    body { line-height: 1.6; background: rgb(8, 8, 8); color: #ffffff; }
+
+    header {
+      background: linear-gradient(90deg, #ff6600, #ff0057, #e104e9, #1c04f3);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+      padding: 20px 10%;
+      text-align: center;
+    }
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 5px; animation: fadeDown 1s ease-in-out; }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px);} to { opacity: 1; transform: translateY(0);} }
+    nav { margin-top: 10px; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s ease, transform 0.3s ease; }
+    nav a:hover { color: yellow; transform: scale(1.1); }
+
+    section { padding: 50px 10%; opacity: 0; transform: translateY(40px); transition: all 1s ease; }
+    section.show { opacity: 1; transform: translateY(0); }
+    section h2 { margin-bottom: 20px; color: #00ff08; font-size: 2rem; text-align: center; }
+    section p { text-align: center; margin-bottom: 20px; }
+
+    .events { display: flex; flex-direction: column; gap: 30px; }
+    .event-card {
+      background: white;
+      color: #000;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 8px 20px rgba(255,255,255,0.2); }
+    .event-card h3 { margin-bottom: 15px; color: #222; }
+
+    form { max-width: 500px; margin: auto; background: white; color: #000; padding: 30px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation: fadeUp 1.2s ease; }
+    @keyframes fadeUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+    form input, form select, form button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; transition: all 0.3s ease; }
+    form input:focus, form select:focus { border-color: #05f70d; outline: none; box-shadow: 0 0 8px rgb(233, 5, 214); }
+    form button { background: linear-gradient(90deg, #0430f1); color: white; font-weight: bold; cursor: pointer; border: none; transition: all 0.3s ease; }
+    form button:hover { transform: scale(1.05); background: linear-gradient(90deg, #f10404, #f700ff); }
+
+    footer { background: #111; color: white; text-align: center; padding: 15px; margin-top: 40px; font-size: 0.9rem; letter-spacing: 1px; }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>CHIGURU 2025</h1>
+    <p>College Fest Event Management</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Chiguru</h2>
+    <p>Chiguru is our annual cultural fest, filled with music, dance, art, and fun events to celebrate creativity and
+      talent. It provides a vibrant platform for students to showcase their skills, express their passions, and build
+      unforgettable memories. From soulful singing and energetic dance performances to thrilling competitions and
+      artistic showcases, Chiguru brings together diversity, unity, and youthful spirit. It is not just a fest but a
+      celebration of culture, innovation, and togetherness, where every participant and audience member experiences the
+      true essence of college life.</p>
+  </section>
+
+  <!-- Events -->
+  <section id="events">
+    <h2>Events</h2>
+    <div class="events">
+      <div class="event-card" data-page="register-solo-eastern.html">
+        <h3>Solo Singing (Eastern)</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnVsbzlvcGNoNGs1dGhtZGNxc2k2ZzNpdWlibXR3NWRodGtsYjZrdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/124QifLHDXLd0Q/giphy.gif" alt="">
+        <p>Showcase your melodious voice in Eastern classical and semi-classical styles.</p>
+      </div>
+      <div class="event-card" data-page="register-solo-western.html">
+        <h3>Solo Singing (Western)</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjc3cDd4MDU5bmNicXl6bXA0NGs0bzRvYnk2OTUwdmJmdmMzajNwaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/CggAJ3DB9LYUuJPybu/giphy.gif" alt="">
+        <p>Sing your heart out with pop, rock, or western classical.</p>
+      </div>
+      <div class="event-card" data-page="register-solo-dance.html">
+        <h3>Solo Dance</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2g1bWJiYTBsaHRobGs1NTlpdGZzY2FyN3U0b21xNWZ4bWxpM3BuZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/j3gsT2RsH9K0w/giphy.gif" alt="">
+        <p>Express yourself with classical or western dance forms.</p>
+      </div>
+      <div class="event-card" data-page="register-group-dance.html">
+        <h3>Group Dance</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bXVtNzk0NXhyMG9kbnE0emhxdmQzamY0bXVrMGZibWV4dnZ3MTZrbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/peHUFXRRwzppaf1lSk/giphy.gif" alt="">
+        <p>Perform as a team with coordinated dance moves.</p>
+      </div>
+      <div class="event-card" data-page="register-treasure.html">
+        <h3>Treasure Hunt</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGZzNG01amxvM3NybHh2OGhicG5hZnhoZGpydmJnMm9keDlleXd2eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cMiNr52ekF8eVhD4dX/giphy.gif" alt="">
+        <p>Crack clues and find the hidden treasure.</p>
+      </div>
+      <div class="event-card" data-page="register-face.html">
+        <h3>Face Painting</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzF3M3g4YnY1bGw1cnA1a3B2aTA5N2N2dW1oaXo1ZW9la2h3dmowYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cHoKgSZha3q0gLSKXx/giphy.gif" alt="">
+        <p>Unleash your creativity by painting faces with artistic themes.</p>
+      </div>
+      <div class="event-card" data-page="register-band.html">
+        <h3>Battle of Bands</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3OXk1bGRlNjk5bXF1Z3J3OGVxanE1a2YzNGhoMW53cWw3MnV3eGZyZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/G3Ii1fdxw1qNy/giphy.gif" alt="">
+        <p>Compete with bands and rock the stage.</p>
+      </div>
+      <div class="event-card" data-page="register-art.html">
+        <h3>Art Exhibition</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NmYzamd4ZDJ5YnY1am5vemdiaDR3NjczdXplY3Q5M3B2MGpyZmF4MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/n5KtETvbAOULK/giphy.gif" alt="">
+        <p>Showcase your artwork and creative projects.</p>
+      </div>
+      <div class="event-card" data-page="register-quiz.html">
+        <h3>Quiz Competition</h3>
+        <img width="700px" height="350px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenJnMm5vdGN2OGQ3cjdwa3hra254cXZhdzlqdTE0c3VkdDBxM2g3NiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M9fk9xXoSS3JI7Ozig/giphy.gif" alt="">
+        <p>Test your knowledge and compete with other students.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- General Registration -->
+  <section id="register">
+    <h2>Register Now</h2>
+    <form id="regForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <select id="event" required>
+        <option value="">Select Event</option>
+        <option>Solo Singing (Eastern)</option>
+        <option>Solo Singing (Western)</option>
+        <option>Solo Dance</option>
+        <option>Group Dance</option>
+        <option>Treasure Hunt</option>
+        <option>Face Painting</option>
+        <option>Battle of Bands</option>
+        <option>Art Exhibition</option>
+        <option>Quiz Competition</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: chiguru@cambridge.edu.in | Phone: +91 7899350173</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Chiguru Fest | Designed by Event Management Team</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Form validation
+    const form = document.getElementById('regForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const event = document.getElementById('event').value;
+
+      if (!name || !email || !phone || !event) {
+        alert("Please fill out all fields.");
+        return;
+      }
+      if (!/^[0-9]{10}$/.test(phone)) {
+        alert("Enter a valid 10-digit phone number.");
+        return;
+      }
+      alert(`🎉 Registration Successful for ${event}! Welcome to Chiguru Fest.`);
+      form.reset();
+    });
+
+    // Scroll fade-in
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const secTop = sec.getBoundingClientRect().top;
+        if (secTop < triggerBottom) sec.classList.add("show");
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Click event cards to open dedicated registration page
+    const cards = document.querySelectorAll(".event-card");
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const page = card.getAttribute("data-page");
+        if (page) window.open(page, "_blank");
+      });
+    });
+  </script>
+</body>
+</html>

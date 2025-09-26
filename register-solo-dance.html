@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Solo Dance</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 40px; }
+    .event-form { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    h2 { text-align: center; color: #333; margin-bottom: 30px; }
+    input, button { width: 100%; margin: 10px 0; padding: 12px; border-radius: 6px; border: 1px solid #ccc; }
+    button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background: #45a049; }
+  </style>
+</head>
+<body>
+  <div class="event-form">
+    <h2>Register for Solo Dance</h2>
+    <form id="eventForm">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Phone Number" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form3 = document.getElementById('eventForm');
+    form3.addEventListener('submit', function(e){
+      e.preventDefault();
+      alert("🎉 Registration Successful! Welcome to Solo Dance.");
+      form3.reset();
+    });
+  </script>
+</body>
+</html>
